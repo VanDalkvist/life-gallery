@@ -1,0 +1,23 @@
+{
+  "name": "live-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VanDalkvist/live-gallery.git"
+  },
+  "author": "Ivan Afanasov <i_van@list.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VanDalkvist/live-gallery/issues"
+  },
+  "homepage": "https://github.com/VanDalkvist/live-gallery",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0"
+  }
+}
