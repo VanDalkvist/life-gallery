@@ -1,5 +1,20 @@
 (function () {
+
+    var slider;
+
+    var originalOptions = {
+        closeElClasses: ['item', 'caption', 'zoom-wrap', 'ui', 'top-bar']
+    };
+
     var vm = {
+        defaultOptions: {
+            escKey: false,
+            closeOnVerticalDrag: false,
+            closeEl: false,
+            tapToClose: false,
+            clickToCloseNonZoomable: false,
+            closeElClasses: []
+        },
         slides: [
             {
                 type: 'image',
@@ -16,8 +31,22 @@
                 type: 'html',
                 name: 'welcome',
                 html: "<div class='hello-slide'><h1>Hello world <a href='http://example.com'>example.com</a></h1></div>"
+            },
+            {
+                type: 'html',
+                name: 'welcome',
+                html: "<div class='hello-slide'><button onclick='lifeGallery.close()'>Close</button></div>"
             }
-        ]
+        ],
+        close: function () {
+            slider.close();
+
+            _resetCloseOptions(vm.defaultOptions);
+        }
+    };
+
+    window.lifeGallery = {
+        close: vm.close
     };
 
     ko.applyBindings(vm, document.getElementsByClassName('slider')[0]);
@@ -247,6 +276,8 @@
                 options.showAnimationDuration = 0;
             }
 
+            _extend(options, vm.defaultOptions);
+
             // Pass data to PhotoSwipe and initialize it
             gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
 
@@ -303,6 +334,8 @@
             });
 
             gallery.init();
+
+            slider = gallery;
         };
 
         // select all gallery elements
@@ -320,5 +353,22 @@
     };
 
     initPhotoSwipeFromDOM('.demo-gallery');
+
+    function _resetCloseOptions(options) {
+        options.closeEl = true;
+        options.escKey = false;
+        options.closeOnVerticalDrag = false;
+        options.tapToClose = false;
+        options.clickToCloseNonZoomable = false;
+        options.closeElClasses = originalOptions.closeElClasses;
+    }
+
+    function _extend(obj, props) {
+        for(var prop in props) {
+            if(props.hasOwnProperty(prop)) {
+                obj[prop] = props[prop];
+            }
+        }
+    }
 
 })();

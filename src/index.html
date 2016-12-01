@@ -37,9 +37,9 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="slider">
 
-<div class="section section--head slider">
+<div class="section section--head">
 
     <div class="row">
         <div id="demo-test-gallery" class="demo-gallery" data-bind="foreach: { data: slides, as: 'slide' }">
@@ -61,7 +61,6 @@
             <!-- ko if: slide.type === 'html' -->
             <a data-type="html" data-bind="attr: { 'data-info': slide.html }" data-size="1300x868">
                 <img src="https://farm6.staticflickr.com/5571/31215021232_224e513303_m.jpg" alt=""/>
-                <figure>This is dummy caption.</figure>
             </a>
             <!-- /ko -->
 
@@ -223,8 +222,8 @@
 
 </div>
 
-<script src="vendors/photoswipe/dist/photoswipe.min.js?v=4.1.1-1.0.4"></script>
-<script src="vendors/photoswipe/dist/photoswipe-ui-default.min.js?v=4.1.1-1.0.4"></script>
+<script src="vendors/photoswipe/dist/photoswipe.js?v=4.1.1-1.0.4"></script>
+<script src="vendors/photoswipe/dist/photoswipe-ui-default.js?v=4.1.1-1.0.4"></script>
 <script src="vendors/knockout/dist/knockout.js"></script>
 <script src="js/main.js"></script>
 
