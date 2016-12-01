@@ -1,0 +1,17 @@
+{
+  "name": "live-gallery",
+  "authors": [
+    "Ivan Afanasov <i_van@list.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
