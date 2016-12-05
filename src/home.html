@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" debug="true">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+
+    <!--<title>PhotoSwipe: Responsive JavaScript Image Gallery</title>-->
+
+    <!--<meta name="description" content="Touch-friendly JavaScript image gallery for mobile and desktop, without dependencies. Responsive layout. Swipe and zoom gestures.">-->
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+
+    <meta name="author" content="Ivan Afanasov">
+    <!--<link rel="canonical" href="http://photoswipe.com">-->
+
+    <!--<meta property="og:url" content="http://photoswipe.com">-->
+    <!--<meta property="og:title" content="PhotoSwipe: Responsive JavaScript Image Gallery">-->
+    <!--<meta property="og:description" content="Touch-friendly JavaScript image gallery for mobile and desktop, without dependencies. Responsive layout. Swipe and zoom gestures.">-->
+    <!--<meta property="og:image" content="http://photoswipe.com/test/horizontal-swipe.jpg">-->
+
+    <!--<link href="https://plus.google.com/102586375605352607718" rel="publisher" />-->
+
+    <link rel="icon apple-touch-icon" href="test/apple-touch-icon-144x144.png" sizes="144x144" type="image/png">
+    <link href="css/site.css?v=4.1.1-1.0.4" rel="stylesheet"/>
+    <link href="vendors/photoswipe/dist/photoswipe.css?v=4.1.1-1.0.4" rel="stylesheet"/>
+    <link href="vendors/photoswipe/dist/default-skin/default-skin.css?v=4.1.1-1.0.4" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('figure');
+    </script>
+    <![endif]-->
+</head>
+
+<body class="slider">
+
+<div class="section section--head">
+
+    <div class="row">
+        <div id="demo-test-gallery" class="demo-gallery" data-bind="foreach: { data: slides, as: 'slide' }">
+
+            <!-- ko if: slide.type === 'image' -->
+            <a data-bind="attr: {
+                    href: slide.image.o,
+                    'data-size': slide.image.size,
+                    'data-med': slide.image.b,
+                    'data-med-size': slide.image.medSize,
+                    'data-id': slide.image.id
+                }">
+                <img data-bind="attr: { 'src': slide.image.m }" alt="" />
+                <figure data-bind="text: slide.image.desc"></figure>
+            </a>
+            <!-- /ko -->
+
+            <!-- ko if: slide.type === 'html' -->
+            <a data-type="html" data-bind="attr: { 'data-info': slide.html }" data-size="1300x868">
+                <img data-bind="attr: { src: slide.url }" alt=""/>
+            </a>
+            <!-- /ko -->
+
+        </div>
+
+        <div>
+
+            <!-- <figure class="demo-gallery__title">Demo gallery &middot; 5 photos</figure> -->
+
+            <!--<div class="style-select">-->
+            <!--<p style="margin:24px 0 12px;color:#444;">Demo gallery style</p>-->
+
+            <!--<div class="radio">-->
+            <!--<input type="radio" name="gallery-style" value="all" id="radio-all-controls" checked/>-->
+            <!--<label for="radio-all-controls">-->
+
+            <!--All controls<br/>-->
+            <!--<span>caption, share and fullscreen buttons, tap to toggle controls</span>-->
+            <!--</label>-->
+            <!--</div>-->
+
+            <!--<div class="radio">-->
+            <!--<input type="radio" name="gallery-style" value="minimal" id="radio-minimal-black"/>-->
+            <!--<label for="radio-minimal-black">-->
+
+            <!--Minimal<br/>-->
+            <!--<span>no caption, transparent background, tap to close</span>-->
+            <!--</label>-->
+            <!--</div>-->
+
+            <!--</div>-->
+        </div>
+
+    </div>
+
+</div>
+
+<style type="text/css">
+    input[type="text"],
+    input[type="email"] {
+        font-size: 18px;
+        line-height: 25px;
+        height: 32px;
+        width: 250px;
+        border: 1px #d0d0d0 solid;
+        margin: 0 0 10px 0;
+        padding: 4px;
+    }
+
+    .wp-signup {
+        background: #EEE;
+        padding: 50px;
+    }
+
+    .row--wp-signup h2 {
+        font-size: 26px;
+    }
+
+    input[type="submit"] {
+        font-size: 15px;
+        line-height: 25px;
+        width: auto;
+        border: 0;
+        padding: 4px 16px;
+        border-radius: 2px;
+        background: #565656;
+        color: #FFF;
+        height: 33px;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background: #777;
+    }
+
+    input[type="submit"]:active {
+        background: #444;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
+    }
+
+    .hello-slide {
+        width: 100%;
+        max-width: 400px;
+        color: #FFF;
+        margin: 30px auto 0;
+        text-align: center;
+
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    h1 {
+        font-weight: normal;
+    }
+    .hello-slide a {
+        color: #B5AEF7 !important;
+    }
+</style>
+
+<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> -->
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip">
+                    <!-- <a href="#" class="pswp__share--facebook"></a>
+                    <a href="#" class="pswp__share--twitter"></a>
+                    <a href="#" class="pswp__share--pinterest"></a>
+                    <a href="#" download class="pswp__share--download"></a> -->
+                </div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script src="vendors/photoswipe/dist/photoswipe.js?v=4.1.1-1.0.4"></script>
+<script src="vendors/photoswipe/dist/photoswipe-ui-default.js?v=4.1.1-1.0.4"></script>
+<script src="vendors/knockout/dist/knockout.js"></script>
+<script src="vendors/howler.js/dist/howler.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
